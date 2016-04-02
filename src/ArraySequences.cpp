@@ -32,6 +32,20 @@ Difficulty : Medium
 #include <math.h>
 
 int * find_sequences(int *arr, int len){
+
 	//Return final array which has 6indexes [AP1_S,AP1_E,AP2_S,AP2_E,GP1_S,GP2_E]
-	return NULL;
+	if (arr== NULL)
+		return NULL;
+	else
+	{
+		int *output,i,j,d,start,end;
+		output = (int *)malloc(6 * sizeof(int));
+		d = arr[1] - arr[0];
+		start = 0;
+		for (i = 2; i < len; i++)
+		{
+			if (d == (arr[i] - arr[i - 1]))
+				count++;
+		}
+	}
 }
