@@ -38,14 +38,20 @@ int * find_sequences(int *arr, int len){
 		return NULL;
 	else
 	{
-		int *output,i,j,d,start,end;
+		int *output,i,j,d,start,end,count=0;
 		output = (int *)malloc(6 * sizeof(int));
 		d = arr[1] - arr[0];
 		start = 0;
-		for (i = 2; i < len; i++)
+		for (i = 1; i < len; i++)
 		{
 			if (d == (arr[i] - arr[i - 1]))
 				count++;
+			else
+			{
+				count = 0;
+				d = arr[i] - arr[i - 1];
+				start = i - 1;
+			}
 		}
 	}
 }
