@@ -38,7 +38,7 @@ int * find_sequences(int *arr, int len){
 		return NULL;
 	else
 	{
-		int *output,i,j,d,start,end,count=0;
+		int *output,i,j=0,d,start,end,count=0;
 		output = (int *)malloc(6 * sizeof(int));
 		d = arr[1] - arr[0];
 		start = 0;
@@ -48,14 +48,36 @@ int * find_sequences(int *arr, int len){
 				count++;
 			else
 			{
-				if (count > 1)
+				if (count > 1){
 					end = i;
+					output[j++] = start;
+					output[j++] = end;
+				}
 				else
 				{
 					start = i - 1;
 					d = arr[i] - arr[i - 1];
 				}
 			}
+			d = arr[0]/ arr[1];
+			for (i = 1; i < len; i++)
+			{
+				if (d == (arr[i-1] / arr[i]))
+					count++;
+				else
+				{
+					if (count > 1){
+						end = i;
+						output[j++] = start;
+						output[j++] = end;
+					}
+					else
+					{
+						start = i - 1;
+						d = arr[i-1] /arr[i];
+					}
+				}
 		}
+			return output;
 	}
 }
