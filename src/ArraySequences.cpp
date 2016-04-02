@@ -48,9 +48,13 @@ int * find_sequences(int *arr, int len){
 				count++;
 			else
 			{
-				count = 0;
-				d = arr[i] - arr[i - 1];
-				start = i - 1;
+				if (count > 1)
+					end = i;
+				else
+				{
+					start = i - 1;
+					d = arr[i] - arr[i - 1];
+				}
 			}
 		}
 	}
